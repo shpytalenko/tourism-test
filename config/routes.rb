@@ -1,8 +1,11 @@
 Kidsland::Application.routes.draw do
+  get "pages/home"
+
   post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
 
   devise_for :users
 
+  root :to => 'pages#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
