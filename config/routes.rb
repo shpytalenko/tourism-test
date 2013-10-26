@@ -1,4 +1,6 @@
 Kidsland::Application.routes.draw do
+  post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
+
   devise_for :users
 
   # The priority is based upon order of creation:

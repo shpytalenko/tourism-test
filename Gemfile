@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem 'formtastic'
 gem 'formtastic-bootstrap'
+gem 'headshot'
 # Use unicorn as the web server
 # gem 'unicorn'
 
