@@ -1,0 +1,16 @@
+<h1>Смотри в камеру, улыбнись и нажми кнопку ФОТО
+когда будешь готов ☺</h1>
+
+<%= headshot_default_config(Rails.application.config.session_options[:key], headshot_capture_path) %>
+
+<%= headshot_camera %>
+
+<br/>
+
+<button name="button" onclick="headshotHandlers.snap()" type="submit" class="btn btn-success btn-large">Сфотографировать</button>
+<button name="button" onclick="headshot.configure()" type="submit">Настройка</button>
+<br  />
+<hr>
+  <p >
+    <%= link_to 'Далее', next_wizard_path, :class=> "pull-right btn btn-primary btn-large"%>
+  </p>

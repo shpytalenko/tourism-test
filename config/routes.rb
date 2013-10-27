@@ -4,8 +4,9 @@ Kidsland::Application.routes.draw do
   post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
 
   devise_for :users
-
+  resources :resume
   root :to => 'pages#home'
+  #root :to => resume_path(:make_photo)
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

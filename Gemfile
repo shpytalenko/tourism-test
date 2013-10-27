@@ -27,6 +27,7 @@ gem "twitter-bootstrap-rails"
 gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'headshot'
+gem 'wicked' , "0.1.1"
 # Use unicorn as the web server
 # gem 'unicorn'
 
