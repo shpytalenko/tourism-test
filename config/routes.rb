@@ -5,7 +5,7 @@ Kidsland::Application.routes.draw do
 
   devise_for :users
   resources :resume
-  root :to => 'pages#home'
+  root :to => 'resume#show'
   #root :to => resume_path(:make_photo)
   # The priority is based upon order of creation:
   # first created -> highest priority.
