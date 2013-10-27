@@ -5,9 +5,8 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'devise'
-
+gem "pg"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,6 +20,7 @@ group :assets do
 end
 group :development do
   gem "nifty-generators"
+gem 'sqlite3'
 end
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
