@@ -3,12 +3,13 @@ class ResumeController < ApplicationController
  # before_filter :authenticate_user!
   include Wicked::Wizard
   
-  steps :start_page, :make_photo, :answer_question, :print_resume
+  steps :start_page, :make_photo, :info,  :answer_question, :print_resume
 
 
  def show
   #  @user = current_user
-    render_wizard
+    
+   render_wizard
  end
 
  def update

@@ -1,0 +1,19 @@
+one:
+  first_name: MyString
+  last_name: MyString
+  sex: MyString
+  dob: 2013-10-28
+  school_number: MyString
+  school_type: MyString
+  klass: MyString
+  headshot_photo: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  sex: MyString
+  dob: 2013-10-28
+  school_number: MyString
+  school_type: MyString
+  klass: MyString
+  headshot_photo: 1

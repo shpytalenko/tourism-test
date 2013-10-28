@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131026004813) do
+ActiveRecord::Schema.define(:version => 20131027233448) do
 
   create_table "headshot_photos", :force => true do |t|
     t.string   "description"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(:version => 20131026004813) do
     t.integer  "capturable_id"
     t.string   "capturable_type"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "sex"
+    t.date     "dob"
+    t.string   "school_number"
+    t.string   "school_type"
+    t.string   "klass"
+    t.integer  "headshot_photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

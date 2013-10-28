@@ -1,4 +1,6 @@
 Kidsland::Application.routes.draw do
+  resources :people
+
   get "pages/home"
 
   post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
