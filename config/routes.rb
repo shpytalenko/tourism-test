@@ -1,4 +1,12 @@
 Kidsland::Application.routes.draw do
+  resources :variants
+
+  resources :questions
+
+  resources :jobs
+
+  resources :services
+
   resources :people
 
   get "pages/home"

@@ -26,6 +26,8 @@ gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem 'formtastic'
 gem 'formtastic-bootstrap'
+gem 'paperclip'
+gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem 'headshot'
 gem 'wicked' , "0.1.1"
 # Use unicorn as the web server

@@ -8,7 +8,10 @@ class ResumeController < ApplicationController
 
  def show
   #  @user = current_user
+  case step
+  when :make_photo
     
+  end  
    render_wizard
  end
 

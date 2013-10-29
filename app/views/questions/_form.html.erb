@@ -1,0 +1,26 @@
+<%= nested_form_for @question, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label "Вопрос:", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :text, :class => 'text_area', :rows =>3, :style=>"width:700px;" %>
+    </div>
+  </div>
+  <%= f.fields_for :variants , :html => {:multipart => true,  :class => 'form-horizontal' } do |variant_form| %>
+    
+          <div class="control-group">
+            
+            <div class="controls">
+              <%= variant_form.text_field :text , :rows =>3, :style=>"width:700px;" %>
+            </div>
+          </div>
+  <% end %>
+  <p><%= f.link_to_add "Добавить вариант", :variants  , :class=>"btn btn-mini btn-success  pull-left"%></p>
+  <br>
+  <br>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                questions_path, :class => 'btn' %>
+  </div>
+<% end %>

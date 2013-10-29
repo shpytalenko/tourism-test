@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131027233448) do
+ActiveRecord::Schema.define(:version => 20131029154230) do
 
   create_table "headshot_photos", :force => true do |t|
     t.string   "description"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(:version => 20131027233448) do
     t.datetime "updated_at"
   end
 
+  create_table "jobs", :force => true do |t|
+    t.string   "name"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "people", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -33,7 +40,19 @@ ActiveRecord::Schema.define(:version => 20131027233448) do
     t.string   "school_number"
     t.string   "school_type"
     t.string   "klass"
-    t.integer  "headshot_photo"
+    t.integer  "headshot_photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,5 +74,12 @@ ActiveRecord::Schema.define(:version => 20131027233448) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "variants", :force => true do |t|
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "question_id"
+  end
 
 end
