@@ -1,0 +1,13 @@
+<% @question = Question.all[1] %>
+<h3> <%= @question.text %> </h3>
+<% @question.variants.each do |v| %>
+ <label class="radio">
+   <%= radio_button_tag("#{v.id}", "yes") %> 
+  <%= v.text%>
+</label> 
+<% end %>
+<br  />
+<hr>
+  <p >
+    <%= link_to 'Далее', next_wizard_path, :class=> "pull-right btn btn-primary btn-large"%>
+  </p>
