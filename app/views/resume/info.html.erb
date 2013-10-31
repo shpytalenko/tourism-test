@@ -8,7 +8,7 @@
   <div class="span6 offset3">
 <%= form_for @person,  url: wizard_path,  :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label "Введитите свое имя:", :class => 'control-label' %>
+    <%= f.label "Введитите свое имя:", :class => 'control-label' %> 
     <div class="controls">
       <%= f.text_field :first_name, :class => 'text_field' %>
     </div>
@@ -52,9 +52,9 @@
 </div>
 </div>
   <hr>
-  <p>
+  <div class="form-actions">
     <%= f.submit "Далее", :class => 'btn btn-primary btn-large pull-right' %>
-  </p>
+  </div>
   <% end %>
     <%#= link_to 'Далее', next_wizard_path, :class=> "btn btn-primary btn-large pull-right"%>
 

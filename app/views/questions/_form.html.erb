@@ -5,6 +5,8 @@
       <%= f.text_area :text, :class => 'text_area', :rows =>3, :style=>"width:700px;" %>
     </div>
   </div>
+  <h5> Варианты ответов: </h5>
+  <hr>
   <%= f.fields_for :variants , :html => {:multipart => true,  :class => 'form-horizontal' } do |variant_form| %>
     
           <div class="control-group">
@@ -19,8 +21,8 @@
   <br>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
+    <%= link_to "Отмена",
                 questions_path, :class => 'btn' %>
   </div>
 <% end %>

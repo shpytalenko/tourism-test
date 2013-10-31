@@ -10,7 +10,7 @@
   <% @question.variants.each do |v| %>
     <label class="radio">
       <%= radio_button_tag(:variant, v.id) %>
-      <%= v.text %>
+  <h4> <%= v.text %> </h4>
     </label>
   <% end %>
  <hr>
