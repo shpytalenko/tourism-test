@@ -21,6 +21,13 @@ class ResumeController < ApplicationController
     when :info
       @person.attributes = params[:person]
     when :question1
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question2
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question3
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question4
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
     
     end
      

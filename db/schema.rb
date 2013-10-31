@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131029154230) do
+ActiveRecord::Schema.define(:version => 20131031133722) do
 
   create_table "headshot_photos", :force => true do |t|
     t.string   "description"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(:version => 20131029154230) do
     t.datetime "updated_at"
   end
 
+  create_table "jobs_variants", :id => false, :force => true do |t|
+    t.integer "job_id"
+    t.integer "variant_id"
+  end
+
+  add_index "jobs_variants", ["job_id", "variant_id"], :name => "index_jobs_variants_on_job_id_and_variant_id"
+  add_index "jobs_variants", ["variant_id"], :name => "index_jobs_variants_on_variant_id"
+
   create_table "people", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -44,6 +52,14 @@ ActiveRecord::Schema.define(:version => 20131029154230) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "people_variants", :id => false, :force => true do |t|
+    t.integer "person_id"
+    t.integer "variant_id"
+  end
+
+  add_index "people_variants", ["person_id", "variant_id"], :name => "index_people_variants_on_person_id_and_variant_id"
+  add_index "people_variants", ["variant_id"], :name => "index_people_variants_on_variant_id"
 
   create_table "questions", :force => true do |t|
     t.text     "text"

@@ -1,41 +1,66 @@
+<div class="row">
+  <div class="span4 offset4">
+  <h2 class="muted"> Резюме </h2>
+</div>
+</div>
 <% @person = Person.last %>
 <%- model_class = Person -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => "Резюме" %></h1>
+  <h4><%=t '.title', :default => "Персональная ифнормация:" %></h4>
 </div>
-<div class="row" >
+
+<div class="row " >
+ 
   <div class="span8">
-  <dl class="dl-horizontal">
-  <dt><strong>Имя:</strong></dt>
-  <dd><%= @person.first_name %></dd>
-  <dt><strong>Фамилия: </strong></dt>
-  <dd><%= @person.last_name %></dd>
-  <dt><strong>Пол:</strong></dt>
-  <dd><%= @person.sex %></dd>
-  <dt><strong>№:</strong></dt>
-  <dd><%= @person.school_number %></dd>
-  <dt><strong>Тип:</strong></dt>
-  <dd><%= @person.school_type %></dd>
-  <dt><strong>Класс:</strong></dt>
-  <dd><%= @person.klass %></dd>
-  </dl>
+    <dl class="dl-horizontal">
+    <dt><strong>Имя:</strong></dt>
+    <dd><%= @person.first_name %></dd>
+    <dt><strong>Фамилия: </strong></dt>
+    <dd><%= @person.last_name %></dd>
+    <dt><strong>Пол:</strong></dt>
+    <dd><%= @person.sex %></dd>
+    <dt><strong>№:</strong></dt>
+    <dd><%= @person.school_number %></dd>
+    <dt><strong>Тип:</strong></dt>
+    <dd><%= @person.school_type %></dd>
+    <dt><strong>Класс:</strong></dt>
+    <dd><%= @person.klass %></dd>
+    </dl>
+  </div>
+  <div class="span4" >
+        <img src="..." class="img-polaroid">
+  </div>
 
-  <div class="form-actions">
-           
-            </div>
-</div>
-<div class="span4">
-  photo
-</div>
 </div>
 
+<div class="page-header">
+  <h4><%=t '.title', :default => "Интересы:" %></h4>
+</div>
+<div class="row well">
+  <div class="span4 offset4">
+     <% @person.variants.each do |variant| %> 
+        <%= variant.text %> <br />
+      <% end %>
+  </div>
+</div>
+
+<div class="page-header">
+  <h4><%=t '.title', :default => "Рекомендуемая сфера деятельности:" %></h4>
+</div>
+<div class="row well">
+  <div class="span4 offset4">
+    <h4> <%= Service.first.name %> </h4>
+  </div>
+</div>
+<div class="page-header">
+  <h4><%=t '.title', :default => "Рекомендуемые профессии КидЛандии:" %></h4>
+</div>
+<div class="row well">
+  <div class="span4 offset4">
+    <% Job.all[0..5].each do |job|  %>
+       <span class="label label-info"> <%= job.name %></span> <br />
+    <% end %>
+  </div>
+</div>
 <hr />
-<h5>
-Рекомендуемые сферы деятельности: <%= Service.first.name %>
-</h5>
-<hr />
-<h4> Рекомендуемые профессии КидЛандии: </h4>
-  <% Job.all[0..5].each do |job|  %>
-    <%= job.name %>
-  <% end %>
 <%= link_to "Печать", "#" , :remote => true , :class => "btn btn-large btn-primary"%>

@@ -1,3 +1,11 @@
+<div class=row>
+  <div class="span4 offset4" >
+    <%= image_tag("http://upload.wikimedia.org/wikipedia/ru/archive/9/98/20121013113115!Mickey_Mouse_in_Steamboat_Willie,_1928.jpg" , :size=>"250x250") %>
+  </div>
+</div>
+<hr>
+<div class=row>
+  <div class="span6 offset3">
 <%= form_for @person,  url: wizard_path,  :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label "Введитите свое имя:", :class => 'control-label' %>
@@ -41,15 +49,12 @@
       <%= f.text_field :klass, :class => 'text_field' %>
     </div>
   </div>
-  
-
-  <div class="form-actions">
-    <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
-  </div>
-<% end %>
-<br  />
+</div>
+</div>
   <hr>
   <p>
-    <%= link_to 'Далее', next_wizard_path, :class=> "btn btn-primary btn-large pull-right"%>
+    <%= f.submit "Далее", :class => 'btn btn-primary btn-large pull-right' %>
   </p>
+  <% end %>
+    <%#= link_to 'Далее', next_wizard_path, :class=> "btn btn-primary btn-large pull-right"%>
 

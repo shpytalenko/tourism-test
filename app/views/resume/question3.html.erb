@@ -1,13 +1,25 @@
+<div class=row>
+  <div class="span4 offset4" >
+    <%= image_tag("http://upload.wikimedia.org/wikipedia/ru/archive/9/98/20121013113115!Mickey_Mouse_in_Steamboat_Willie,_1928.jpg" , :size=>"250x250") %>
+  </div>
+</div>
+<hr>
 <% @question = Question.all[2] %>
 <h3> <%= @question.text %> </h3>
-<% @question.variants.each do |v| %>
- <label class="radio">
-   <%= radio_button_tag("#{v.id}", "yes") %> 
-  <%= v.text%>
-</label> 
+
+<%= form_tag("/resume/question3" , :method => :put)  do  %>
+  <% @question.variants.each do |v| %>
+    <label class="radio">
+      <%= radio_button_tag(:variant, v.id) %>
+      <%= v.text %>
+    </label>
+  <% end %>
+ <hr>
+  <div class="form-actions">
+    <%= submit_tag "Далее" , :class=> "pull-right btn btn-primary btn-large"%>
+  </div>
 <% end %>
-<br  />
-<hr>
-  <p >
-    <%= link_to 'Далее', next_wizard_path, :class=> "pull-right btn btn-primary btn-large"%>
-  </p>
+
+
+
+
