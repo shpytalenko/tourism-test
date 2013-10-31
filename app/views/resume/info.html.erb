@@ -1,5 +1,4 @@
-<% @person = Person.new%>
-<%= form_for @person, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @person,  url: wizard_path,  :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label "Введитите свое имя:", :class => 'control-label' %>
     <div class="controls">
@@ -42,12 +41,7 @@
       <%= f.text_field :klass, :class => 'text_field' %>
     </div>
   </div>
-  <div class="control-group" style="display:none;">
-    <%= f.label :headshot_photo, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :headshot_photo, :class => 'number_field' %>
-    </div>
-  </div>
+  
 
   <div class="form-actions">
     <%= f.submit "Сохранить", :class => 'btn btn-primary' %>

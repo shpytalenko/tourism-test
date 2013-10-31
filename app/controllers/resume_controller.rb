@@ -9,16 +9,33 @@ class ResumeController < ApplicationController
  def show
   #  @user = current_user
   case step
-  when :make_photo
-    
+  when :info
+    @person = Person.create
   end  
    render_wizard
  end
 
  def update
-   # @user = current_user
-    render_wizard
+  @person = Person.last
+  case step
+    when :info
+      @person.attributes = params[:person]
+    when :question1
+    
+    end
+     
+   render_wizard @person
   end
+
+#def create
+
+#  case step
+# when :info
+#   @person = Person.create
+# end 
+# 
+#   redirect_to wizard_path(steps.first, :product_id => @product.id)
+# end
 
 
 end
