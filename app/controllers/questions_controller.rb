@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
     if @question.save
-      redirect_to @question, :notice => "Successfully created question."
+      redirect_to services_url, :notice => "Successfully created question."
     else
       render :action => 'new'
     end
@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update_attributes(params[:question])
-      redirect_to @question, :notice  => "Successfully updated question."
+      redirect_to services_url, :notice  => "Successfully updated question."
     else
       render :action => 'edit'
     end
@@ -36,6 +36,6 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to questions_url, :notice => "Successfully destroyed question."
+    redirect_to services_url, :notice => "Successfully destroyed question."
   end
 end

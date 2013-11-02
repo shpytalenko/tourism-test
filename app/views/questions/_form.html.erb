@@ -1,22 +1,67 @@
 <%= nested_form_for @question, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label "Вопрос:", :class => 'control-label' %>
+    <%#= f.label "Вопрос:", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :text, :class => 'text_area', :rows =>3, :style=>"width:700px;" %>
     </div>
   </div>
   <h5> Варианты ответов: </h5>
   <hr>
+  
+  
   <%= f.fields_for :variants , :html => {:multipart => true,  :class => 'form-horizontal' } do |variant_form| %>
-    
+    <table>
+      <tr>
+        <td>
           <div class="control-group">
-            
             <div class="controls">
               <%= variant_form.text_field :text , :rows =>3, :style=>"width:700px;" %>
-            </div>
+              <%= variant_form.number_field :id , :style=>"display:none;" %>
+              
+              <%#= link_to "Составить список профессий",
+                      edit_variant_path(variant), :class => 'btn btn-mini' %>
+                 
+          <%= variant_form.link_to_remove "Удалить" , :class => 'btn btn-mini btn-danger'%>
+                    </div>
           </div>
-  <% end %>
-  <p><%= f.link_to_add "Добавить вариант", :variants  , :class=>"btn btn-mini btn-success  pull-left"%></p>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td> 
+       </tr>
+      </table>
+        <hr>
+      
+             
+<%
+=begin
+%>
+        <% for job in Job.find(:all) %>
+          <div>
+            <%= variant_form.check_box "job_ids[]", job.id, Job.all[-1..-2].include?(job) %>
+            <%= job.name %>
+          </div>
+          <% end %>
+
+<%= variant_form.fields_for :jobs , :html => {:multipart => true,  :class => 'form-horizontal' } do |job_form| %>
+              <div class="control-group">
+                <div class="controls">
+                  <%= job_form.collection_select(:name,  Job.all, :id, :name ) %>
+                </div>
+              </div>
+          <% end %>
+          <p><%= variant_form.link_to_add "Добавить профессию", :jobs  , :class=>"btn btn-mini btn-success  pull-right"%></p>
+          <hr>
+
+
+<%
+=end
+%>
+       
+        <% end %>
+        
+  <p><%= f.link_to_add "Добавить вариант", :variants  , :class=>"btn btn-mini btn-success  pull-right"%></p>
   <br>
   <br>
 

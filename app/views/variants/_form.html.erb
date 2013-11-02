@@ -12,6 +12,12 @@
     </div>
   </div>
 
+  <% for job in Job.find(:all) %>
+<div>
+  <%= check_box_tag "variant[job_ids][]", job.id, @variant.jobs.include?(job) %>
+  <%= job.name %>
+</div>
+<% end %>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

@@ -27,7 +27,7 @@ class VariantsController < ApplicationController
   def update
     @variant = Variant.find(params[:id])
     if @variant.update_attributes(params[:variant])
-      redirect_to @variant, :notice  => "Successfully updated variant."
+      redirect_to services_url, :notice  => "Successfully updated variant."
     else
       render :action => 'edit'
     end
