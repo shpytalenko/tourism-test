@@ -6,13 +6,15 @@
 <hr>
 
 <% @question = Question.all[0] %>
-<h3> <%= @question.text %> </h3>
 
+<div class="alert alert-info">
+  <h3> <%= @question.text %> </h3>
+</div>
 <%= form_tag("/resume/question1" , :method => :put)  do  %>
   <% @question.variants.each do |v| %>
     <label class="radio">
       <%= radio_button_tag(:variant, v.id) %>
-      <h4> <%= v.text %> </h4>
+      <h4 class="muted"> <%= v.text %> </h4>
     </label>
   <% end %>
   <hr>

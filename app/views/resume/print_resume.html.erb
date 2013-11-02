@@ -5,7 +5,9 @@
 </div>
 <% @person = Person.last %>
 <%- model_class = Person -%>
-<div class="page-header">
+<hr>
+
+<div class="alert alert-info">
   <h4><%=t '.title', :default => "Персональная ифнормация:" %></h4>
 </div>
 <div class="row" >
@@ -35,33 +37,48 @@
   </div>
 
 </div>
-<div class="page-header">
+<hr>
+<div class="alert alert-info">
   <h4><%=t '.title', :default => "Интересы:" %></h4>
 </div>
-<div class="row well">
-  <div class="span6 offset3">
-     <% @person.variants.each do |variant| %> 
-       <h4> <%= variant.text %> </h4>
+<div class="row ">
+  <div class="span6 offset3 muted">
+    <ul>
+      <% @person.variants.each do |variant| %> 
+        <li> <h5> <%= variant.text %> </h5> </li>
       <% end %>
+    </ul>
   </div>
 </div>
 
-<div class="page-header">
+<hr>
+<div class="alert alert-info">
   <h4><%=t '.title', :default => "Рекомендуемая сфера деятельности:" %></h4>
 </div>
-<div class="row well">
-  <div class="span6 offset3">
-    <h4> <%= Service.first.name %> </h4>
+<div class="row ">
+  <div class="span6 offset3 muted">
+    <h5> <%= Service.first.name %> </h5>
   </div>
 </div>
-<div class="page-header">
+
+<hr>
+<div  class="alert alert-info">
   <h4><%=t '.title', :default => "Рекомендуемые профессии КидЛандии:" %></h4>
 </div>
-<div class="row well">
-  <div class="span6 offset3">
-    <% Job.all[0..5].each do |job|  %>
-      <h4> <%= job.name %></h4>
+<div class="row ">
+  <div class="span6 offset3 muted ">
+    <%
+    list=""  
+    @person.variants.each do |variant|
+      variant.jobs.each do |job|
+        list << " #{job.name} "
+      end
+    end
+    %>
+    <% list.split(" ").each do |l|%>
+      <li> <h5> <%= l %></h5> </li>
     <% end %>
+      <h4> <%#= list %></h4>
   </div>
 </div>
 <hr />
