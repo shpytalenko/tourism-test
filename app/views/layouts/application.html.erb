@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js" %>
     <script src="http://www.position-absolute.com/creation/print/jquery.printPage.js" type="text/javascript"></script>
     <title><%= content_for?(:title) ? yield(:title) : "Kidsland" %></title>
     <%= csrf_meta_tags %>
@@ -36,8 +37,7 @@
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
     
-   
-  </head>
+     </head>
   <body>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -60,8 +60,8 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="content">
+    <div class="container well" style="background-color:white; min-height:900px;">
+      <div class="content " >
         <div class="row">
           <div class="span12">
               <%= yield %>
@@ -98,6 +98,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%#= javascript_include_tag "application" %>
+<script>
+     // To attach Backstrech as the body's background
+     $.backstretch("http://www.freefever.com/stock/cute-scenery-background-wallpapers-cartoon-wallpaper.jpg");
+</script>
 
   </body>
 </html>
