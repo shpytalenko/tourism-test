@@ -20,7 +20,7 @@ group :assets do
 end
 group :development do
   gem "nifty-generators"
-gem 'sqlite3'
+  gem 'sqlite3'
 end
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"

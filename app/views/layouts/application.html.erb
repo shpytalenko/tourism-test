@@ -39,7 +39,7 @@
     
      </head>
   <body>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -50,9 +50,14 @@
           <a class="brand" href="#">Kidsland</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Создать Резюме", "/"  %></li>
-              <li><%= link_to "Професии", "/services"  %></li>
-              <li><%= link_to "Вопросы", "/questions"  %></li>
+              <li><%= link_to "", "/"  %></li>
+                <li class="divider-vertical"><a href="/services"><i class="icon-file"></i>Создать Резюме</a></li>
+              <% if user_signed_in? %>
+                <li class="divider-vertical"><a href="/services"><i class="icon-question-sign"></i>Вопросы/Профессии</a></li>
+                <li class="divider-vertical"><a href="/people"><i class="icon-th-list"></i>Анкеты</a></li>
+                <li class="divider-vertical"><a href="<%= edit_user_registration_path(:method => :get)%>"><i class="icon-user"></i><%= current_user.email %></a></li>
+                <li class="divider-vertical"><a href="<%=  destroy_user_session_path(:method => :delete) %>"><i class="icon-off"></i>Выход</a></li>
+            <% end %>
             </ul>
  
           </div><!--/.nav-collapse -->

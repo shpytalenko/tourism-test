@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+ before_filter :authenticate_user!
   def index
     @services = Service.all
     @questions = Question.all
