@@ -56,7 +56,7 @@
                 <li class="divider-vertical"><a href="/services"><i class="icon-question-sign"></i>Вопросы/Профессии</a></li>
                 <li class="divider-vertical"><a href="/people"><i class="icon-th-list"></i>Анкеты</a></li>
                 <li class="divider-vertical"><a href="<%= edit_user_registration_path(:method => :get)%>"><i class="icon-user"></i><%= current_user.email %></a></li>
-                <li class="divider-vertical"><a href="<%=  destroy_user_session_path(:method => :delete) %>"><i class="icon-off"></i>Выход</a></li>
+                <li class="divider-vertical"><a href="<%=  destroy_user_session_path%>" data-method="delete"><i class="icon-off"></i>Выход</a></li>
             <% end %>
             </ul>
  
