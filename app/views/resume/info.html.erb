@@ -1,65 +1,80 @@
-<div class=row>
+<div class="row">
   <div class="span4 offset4" >
     <%= image_tag("http://upload.wikimedia.org/wikipedia/ru/archive/9/98/20121013113115!Mickey_Mouse_in_Steamboat_Willie,_1928.jpg" , :size=>"250x250") %>
   </div>
 </div>
-<hr>
-<div class="alert alert-info">
-  <h4> Введите  данные о себе: </h4>
-</div>
+
+  <hr>
+  <div class="alert alert-info">
+    <h4> Введите  данные о себе: </h4>
+  </div>
 <hr>
 
-<div class=row>
+<div class="row">
   <div class="span6 offset3">
 <%= form_for @person,  url: wizard_path,  :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label "Введитите свое имя:", :class => 'control-label' %> 
     <div class="controls">
-      <%= f.text_field :first_name, :class => 'text_field' %>
+      <%= f.text_field :first_name, :class => 'text_field' , :required => true %>
     </div>
   </div>
+
   <div class="control-group">
     <%= f.label "Введите свою фамилию:", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :last_name, :class => 'text_field' %>
+      <%= f.text_field :last_name, :class => 'text_field' , :required => true%>
     </div>
   </div>
   <div class="control-group">
     <%= f.label "Укажите свой пол:", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :sex, :class => 'text_field' %>
+      <%= f.text_field :sex, :class => 'text_field' , :required => true%>
     </div>
   </div>
-  <div class="control-group" style="display:none;">
+  <div class="control-group" style="">
     <%= f.label "Укажи свой возраст:", :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :dob, :class => 'date_select' %>
+      <%= f.number_field :age, :class => '' , :style=>"width:100px;", :required => true%>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label "№", :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :school_number, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label "Тип", :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :school_type, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label "Класс", :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :klass, :class => 'text_field' %>
-    </div>
-  </div>
-</div>
-</div>
+ 
+  <h5> Укажите место учебы</h5>
   <hr>
+  <table >
+    <tr>
+     <td  style="width: 100px;">
+      <div class="control-group">
+        <%= f.label "Тип", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :school_type, :placeholder => "(школа, гимназия ..)",  :class => 'text_field' , :required => true%>
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <div class="control-group">
+        <%= f.label "№", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :school_number, :placeholder => "231", :class => 'text_field' , :style=>"width:100px;",  :required => true %>
+        </div>
+      </div>
+    </td>
+    </tr>
+  </table>
+
+      <div class="control-group">
+        <%= f.label "Класс", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :klass, :class => 'text_field' , :placeholder => "7A" ,  :required => true%>
+        </div>
+      </div>
+
+<hr>
   <div class="form-actions">
     <%= f.submit "Далее", :class => 'btn btn-primary btn-large pull-right' %>
   </div>
   <% end %>
-    <%#= link_to 'Далее', next_wizard_path, :class=> "btn btn-primary btn-large pull-right"%>
 
+</div>
+</div>

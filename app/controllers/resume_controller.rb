@@ -1,6 +1,6 @@
 class ResumeController < ApplicationController
   helper :headshot
- # before_filter :authenticate_user!
+  # before_filter :authenticate_user!
   include Wicked::Wizard
   
   steps :start_page, :make_photo, :info, :question1, :question2, :question3, :question4,  :print_resume
