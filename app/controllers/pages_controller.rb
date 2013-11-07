@@ -6,4 +6,6 @@ class PagesController < ApplicationController
   
   end
 
+  def print_page
+  end
 end

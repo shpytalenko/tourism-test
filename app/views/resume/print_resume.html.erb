@@ -1,15 +1,65 @@
+ <script>  
+  $(document).ready(function() {
+    $(".btnPrint").printPage(
+    {
+      url: "/resume/print_resume",
+      attr: "href",
+      message:"Идет печать ..."
+}
+    );
+  });
+</script>
+<div id="print_page">
 <div class="row">
   <div class="span4 offset4">
-  <h2 class="muted"> Резюме </h2>
-</div>
+    <h2 class="muted"> Резюме </h2>
+  </div>
 </div>
 <% @person = Person.last %>
 <%- model_class = Person -%>
-<hr>
-
 <div class="alert alert-info">
   <h4><%=t '.title', :default => "Персональная ифнормация:" %></h4>
 </div>
+<table style="width:90%;" >
+  <tr>
+    <td style="width:50%">
+      <table>
+        <tr>
+          <td> Имя:</td>
+          <td> <%= @person.first_name %></td>
+        </tr>
+        <tr>
+          <td> Фамилия:</td>
+          <td> <%= @person.last_name %></td>
+        </tr>
+        <tr>
+          <td> Пол:</td>
+          <td> <%= @person.sex %></td>
+        </tr>
+        <tr>
+          <td> Возраст:</td>
+          <td> <%= @person.age %></td>
+        </tr>
+        <tr>
+          <td>Место учебы: </td>
+          <td> <%= @person.school_type %> №:<%= @person.school_number %>, <%= @person.klass %>  </td>
+        </tr>
+      </table>  
+    
+    </td>
+    <td>
+      <div>
+        <% if @person.headshot_photos.size >0  %>
+          <%= image_tag @person.headshot_photos.last.image.url %>
+        <% end %>
+      </div>
+    </td>
+  
+  </tr>
+</table>
+<%
+=begin
+%>
 <div class="row" >
  
   <div class="span4">
@@ -39,17 +89,20 @@
 
 
   <div class="span4" >
- <a href="#" class="thumbnail">
-                  <img data-src="holder.js/260x180" alt="">
-                </a>
+    <a href="#" class="thumbnail">
+          <img data-src="holder.js/260x180" alt="">
+      </a>
   </div>
 
 </div>
+<%
+=end
+%>
 <hr>
-<div class="alert alert-info">
+<div class="alert alert-info interests" >
   <h4><%=t '.title', :default => "Интересы:" %></h4>
 </div>
-<div class="row ">
+<div class="row  interests">
   <div class="span6 offset3 muted">
     <ul>
       <% @person.variants.each do |variant| %> 
@@ -90,4 +143,5 @@
   </div>
 </div>
 <hr />
-<%= link_to "Печать", "#" , :remote => true , :class => "btn btn-large btn-primary"%>
+<p><a class="btnPrint btn btn-primary btn-large" href='iframes/iframe.html' id="print_link">Распечатать</a></p>
+</div>
