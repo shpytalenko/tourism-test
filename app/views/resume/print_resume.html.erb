@@ -18,30 +18,30 @@
 <% @person = Person.last %>
 <%- model_class = Person -%>
 <div class="alert alert-info">
-  <h4><%=t '.title', :default => "Персональная ифнормация:" %></h4>
+  <h4><%=t '.title', :default => "Персональна інформація:" %></h4>
 </div>
-<table style="width:90%;" >
+<table style="width:700px;" >
   <tr>
     <td style="width:50%">
-      <table>
+      <table style="width:90%;">
         <tr>
-          <td> Имя:</td>
+          <td> Ім'я:</td>
           <td> <%= @person.first_name %></td>
         </tr>
         <tr>
-          <td> Фамилия:</td>
+          <td> Прізвище:</td>
           <td> <%= @person.last_name %></td>
         </tr>
         <tr>
-          <td> Пол:</td>
+          <td> Стать:</td>
           <td> <%= @person.sex %></td>
         </tr>
         <tr>
-          <td> Возраст:</td>
+          <td> Вік:</td>
           <td> <%= @person.age %></td>
         </tr>
         <tr>
-          <td>Место учебы: </td>
+          <td>Місце навчання: </td>
           <td> <%= @person.school_type %> №:<%= @person.school_number %>, <%= @person.klass %>  </td>
         </tr>
       </table>  
@@ -50,7 +50,7 @@
     <td>
       <div>
         <% if @person.headshot_photos.size >0  %>
-          <%= image_tag @person.headshot_photos.last.image.url %>
+          <%= image_tag "/headshots/#{@person.headshot_photos.last.image_file_name}" %>
         <% end %>
       </div>
     </td>
@@ -100,7 +100,7 @@
 %>
 <hr>
 <div class="alert alert-info interests" >
-  <h4><%=t '.title', :default => "Интересы:" %></h4>
+  <h4><%=t '.title', :default => "Інтереси:" %></h4>
 </div>
 <div class="row  interests">
   <div class="span6 offset3 muted">
@@ -114,22 +114,32 @@
 
 <hr>
 <div class="alert alert-info">
-  <h4><%=t '.title', :default => "Рекомендуемая сфера деятельности:" %></h4>
+  <h4><%=t '.title', :default => "Рекомендовані сфери діяльності:" %></h4>
 </div>
 <div class="row ">
   <div class="span6 offset3 muted">
-    <h5> <%= Service.first.name %> </h5>
+    <% list_services = []
+    @person.variants.each do |variant|
+      variant.jobs.each do |job|
+        list_services << job.service.name if list_services.include?("#{job.service.name}") == false
+      end
+    end
+    %>
+    <% list_services.each do |service| %>
+      <%= "#{service}, "  %>
+    <% end%>
   </div>
 </div>
 
 <hr>
 <div  class="alert alert-info">
-  <h4><%=t '.title', :default => "Рекомендуемые профессии КидЛандии:" %></h4>
+  <h4><%=t '.title', :default => "Рекомендовані професії" %></h4>
 </div>
 <div class="row ">
   <div class="span6 offset3 muted ">
     <%
-    list=""  
+      list=""
+    list_services=[]  
     @person.variants.each do |variant|
       variant.jobs.each do |job|
         list << " #{job.name} "
@@ -143,5 +153,5 @@
   </div>
 </div>
 <hr />
-<p><a class="btnPrint btn btn-primary btn-large" href='iframes/iframe.html' id="print_link">Распечатать</a></p>
+<p class="pagination-centered"> <a class="btnPrint btn btn-primary btn-large" href='iframes/iframe.html' id="print_link">Роздрукувати</a></p>
 </div>

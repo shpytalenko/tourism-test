@@ -1,7 +1,6 @@
 
 <div class="alert alert-info">
-<h2>Смотри в камеру, улыбнись и нажми кнопку ФОТО
-когда будешь готов ☺</h2>
+<h2>Дивись у камеру, посміхнись і нажми кнопку "Фото" коли будеш готовий ☺</h2>
 </div>
 <hr>
 <div class="row" >
@@ -11,13 +10,13 @@
 <%= headshot_camera %>
 
 <br/>
-
-<button name="button" onclick="headshotHandlers.snap()" type="submit" class="btn btn-success btn-large">Сфотографировать</button>
+<hr>
+<button name="button" onclick="headshotHandlers.snap()" type="submit" class="btn btn-success btn-large">Фото</button>
 <button name="button" onclick="headshot.configure()" type="submit">Настройка</button>
 </div>
 </div>
 <br  />
 <hr>
-  <div class="form-actions" >
-    <%= link_to 'Далее', next_wizard_path, :class=> "pull-right btn btn-primary btn-large"%>
+  <div class="form-actions pagination-centered" >
+    <%= link_to 'Далі ...', next_wizard_path, :class=> " btn btn-primary btn-large"%>
   </div>
