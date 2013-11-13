@@ -20,8 +20,8 @@
 <div class="alert alert-info">
   <h4><%=t '.title', :default => "Персональна інформація:" %></h4>
 </div>
-<table  >
-  <tr  style="width: 1100px;">
+<table class="table" >
+  <tr  >
     <td style="width:50%">
       <table style="width:90%;">
         <tr>
@@ -146,12 +146,21 @@
       end
     end
     %>
-    <% list.split(" ").each do |l|%>
-      <li> <h5> <%= l %></h5> </li>
-    <% end %>
-      <h4> <%#= list %></h4>
+    <table>
+      <tr>
+        <% list.split(" ").each_slice(5) do |slice|%>
+          <td>
+            <ul>
+            <% slice.each do |l| %>
+              <li> <h5> <%= l %></h5> </li>
+            <% end %>
+            </ul>
+          </td>
+        <% end %>
+      </tr>
+    </table>
   </div>
 </div>
 <hr />
-<p class="pagination-centered"> <a class="btnPrint btn btn-primary btn-large" href='iframes/iframe.html' id="print_link">Роздрукувати</a></p>
+  <p class="pagination-centered"> <a class="btnPrint btn btn-primary btn-large" href='iframes/iframe.html' id="print_link">Роздрукувати</a></p>
 </div>

@@ -29,7 +29,8 @@
   <div class="control-group">
     <%= f.label "Вкажіть свою стать:", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :sex, :class => 'text_field' , :required => true%>
+      <%#= f.text_field :sex, :class => 'text_field' , :required => true%>
+      <%= f.select :sex,  options_for_select( ["Чоловіча" , "Жіноча" ], "Чоловіча")  , :required => true%>
     </div>
   </div>
   <div class="control-group" style="">

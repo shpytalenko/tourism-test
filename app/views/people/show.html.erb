@@ -1,3 +1,15 @@
+ <script>  
+  $(document).ready(function() {
+    $(".btnPrint").printPage(
+    {
+      url: "/resume/print_resume",
+      attr: "href",
+      message:"Идет печать ..."
+}
+    );
+  });
+</script>
+
 <div class="row">
   <div class="span4 offset4">
   <h2 class="muted"> Резюме </h2>
@@ -84,7 +96,7 @@
 <hr />
 
 <div class="form-actions">
-<%= link_to "Печать", "#" , :remote => true , :class => "btn btn-large btn-primary"%>
+  <a class="btnPrint btn btn-primary btn-large" href='iframes/iframe.html' id="print_link">Распечатать</a>
   <%= link_to "Назад",
     people_path, :class => 'btn'  %>
 </div>

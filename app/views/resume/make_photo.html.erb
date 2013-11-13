@@ -3,8 +3,8 @@
 <h2>Дивись у камеру, посміхнись і нажми кнопку "Фото" коли будеш готовий ☺</h2>
 </div>
 <hr>
-<div class="row" >
-  <div class="span5 offset2 well">
+<div class="pagination-centered" >
+
 <%= headshot_default_config(Rails.application.config.session_options[:key], headshot_capture_path) %>
 
 <%= headshot_camera %>
@@ -13,10 +13,10 @@
 <hr>
 <button name="button" onclick="headshotHandlers.snap()" type="submit" class="btn btn-success btn-large">Фото</button>
 <button name="button" onclick="headshot.configure()" type="submit">Настройка</button>
-</div>
+
 </div>
 <br  />
 <hr>
   <div class="form-actions pagination-centered" >
-    <%= link_to 'Далі ...', next_wizard_path, :class=> " btn btn-primary btn-large"%>
+    <%= link_to 'Далі', next_wizard_path, :class=> " btn btn-primary btn-large"%>
   </div>
