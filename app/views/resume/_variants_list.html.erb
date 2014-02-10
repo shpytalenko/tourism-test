@@ -1,0 +1,22 @@
+<% if @question.images == true %>
+  <% @question.variants.each_slice(4) do |slice| %>
+    <div class="row-fluid">
+      <% slice.each do |v| %>
+        <div class="span3 ">
+          <label class="radio">
+            <%= radio_button_tag(:variant, v.id) %>
+            <p class="text-center"><h4 class="muted"> <%= v.text %> </h4></p>
+            <%= image_tag "/assets/download.jpg", :class=>"img-polaroid"%>
+          </label>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <% @question.variants.each do |v| %>
+    <label class="radio">
+      <%= radio_button_tag(:variant, v.id) %>
+      <h4 class="muted"> <%= v.text %> </h4>
+    </label>
+  <% end %>
+<% end %>

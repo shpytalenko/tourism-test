@@ -17,12 +17,13 @@
             <div class="controls">
               <%= variant_form.text_field :text , :rows =>3, :style=>"width:700px;" %>
               <%= variant_form.number_field :id , :style=>"display:none;" %>
-              
+              <%= variant_form.file_field :image %>
+    
               <%#= link_to "Составить список профессий",
                       edit_variant_path(variant), :class => 'btn btn-mini' %>
                  
-          <%= variant_form.link_to_remove "Удалить" , :class => 'btn btn-mini btn-danger'%>
-                    </div>
+              <%= variant_form.link_to_remove "Удалить" , :class => 'btn btn-mini btn-danger'%>
+            </div>
           </div>
         </td>
         <td>

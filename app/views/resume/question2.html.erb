@@ -10,13 +10,8 @@
   <h3> <%= @question.text %> </h3>
 </div>
 <%= form_tag("/resume/question2" , :method => :put)  do  %>
-  <% @question.variants.each do |v| %>
-    <label class="radio">
-      <%= radio_button_tag(:variant, v.id) %>
-  <h4 class="muted"> <%= v.text %> </h4>
-    </label>
-  <% end %>
- <hr>
+  <%= render "/resume/variants_list" %>
+  <hr>
   <div class="form-actions  pagination-centered">
     <%= submit_tag "Далі" , :class=> " btn btn-primary btn-large"%>
   </div>

@@ -51,8 +51,12 @@
                 end
            
            
-            %>
-            <li> <%= variant.text %> , <span class="muted"> ( <%=jobs %> <%= link_to "ред.", :controller => :variants, :action => :edit , :id => variant.id %> ) </li>
+              %>
+              <% if question.images == true %>
+                <li> <%= variant.text %> ,  <%= image_tag variant.image.url(:thumb) %> <span class="muted"> ( <%=jobs %> <%= link_to "ред.", :controller => :variants, :action => :edit , :id => variant.id %> ) </li>
+              <% else %>     
+                <li> <%= variant.text %>   <span class="muted"> ( <%=jobs %> <%= link_to "ред.", :controller => :variants, :action => :edit , :id => variant.id %> ) </li>
+              <% end %> 
           <% end %>
           </ul>
         </td>

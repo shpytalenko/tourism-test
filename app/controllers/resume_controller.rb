@@ -3,7 +3,9 @@ class ResumeController < ApplicationController
   # before_filter :authenticate_user!
   include Wicked::Wizard
   
-  steps :start_page, :make_photo, :info, :question1, :question2, :question3, :question4,  :print_resume
+  steps :start_page ,:info, :question1, :question2, :question3, :question4, 
+       :question5, :question6, :question7, :question8, :question9, :question10, :question11,
+       :question12, :print_resume
 
 
  def show
@@ -28,7 +30,22 @@ class ResumeController < ApplicationController
       @person.variants << Variant.find_by_id(params[:variant].to_i)
     when :question4
       @person.variants << Variant.find_by_id(params[:variant].to_i)
-    
+    when :question5
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question6
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question7
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question8
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question9
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question10
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question11
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
+    when :question12
+      @person.variants << Variant.find_by_id(params[:variant].to_i)
     end
      
    render_wizard @person

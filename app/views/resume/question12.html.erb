@@ -4,19 +4,18 @@
   </div>
 </div>
 <hr>
-<% @question = Question.all[2] %>
+
+<% @question = Question.all[11] %>
 
 <div class="alert alert-info">
   <h3> <%= @question.text %> </h3>
 </div>
-<%= form_tag("/resume/question3" , :method => :put)  do  %>
+<%= form_tag("/resume/question12" , :method => :put)  do  %>
   <%= render "/resume/variants_list" %>
   <hr>
   <div class="form-actions pagination-centered">
     <%= submit_tag "Далі" , :class=> " btn btn-primary btn-large"%>
   </div>
 <% end %>
-
-
-
+<br  />
 
