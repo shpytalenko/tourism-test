@@ -1,0 +1,6 @@
+<% @person = Person.last %>
+<%- model_class = Person -%>
+<div class="alert alert-info">
+  <h4><%=t '.title', :default => "Результаты теста:" %></h4>
+</div>
+<%= Person.last.show_answer %>

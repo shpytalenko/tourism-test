@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   def index
     @answers = Answer.all
+    @questions = Question.all
   end
 
   def show
@@ -14,7 +15,7 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(params[:answer])
     if @answer.save
-      redirect_to @answer, :notice => "Successfully created answer."
+      redirect_to answers_url, :notice => "Successfully created answer."
     else
       render :action => 'new'
     end
@@ -27,7 +28,7 @@ class AnswersController < ApplicationController
   def update
     @answer = Answer.find(params[:id])
     if @answer.update_attributes(params[:answer])
-      redirect_to @answer, :notice  => "Successfully updated answer."
+      redirect_to answers_url, :notice  => "Successfully updated answer."
     else
       render :action => 'edit'
     end

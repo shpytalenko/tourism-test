@@ -1,8 +1,5 @@
-<% title "Edit Answer" %>
-
-<%= render 'form' %>
-
-<p>
-  <%= link_to "Show", @answer %> |
-  <%= link_to "View All", answers_path %>
-</p>
+<%- model_class = Answer -%>
+<div class="page-header">
+  <h4>Редактирование:</h4>
+</div>
+<%= render :partial => 'form' %>

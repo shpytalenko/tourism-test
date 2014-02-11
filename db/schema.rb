@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140210152241) do
+ActiveRecord::Schema.define(:version => 20140210153023) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "answers_variants", :id => false, :force => true do |t|
+    t.integer "answer_id"
+    t.integer "variant_id"
+  end
+
+  add_index "answers_variants", ["answer_id", "variant_id"], :name => "index_answers_variants_on_answer_id_and_variant_id"
+  add_index "answers_variants", ["variant_id"], :name => "index_answers_variants_on_variant_id"
 
   create_table "headshot_photos", :force => true do |t|
     t.string   "description"

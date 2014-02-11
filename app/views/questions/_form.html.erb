@@ -5,6 +5,12 @@
       <%= f.text_area :text, :class => 'text_area', :rows =>3, :style=>"width:700px;" %>
     </div>
   </div>
+  <div class="control-group">
+  <h5> Будут ли картинки? </h5>
+    <div class="controls">
+      <%= f.select :images, [ ['Нет', false], ['Да', true]] %>
+    </div>
+  </div>
   <h5> Варианты ответов: </h5>
   <hr>
   
@@ -15,7 +21,7 @@
         <td>
           <div class="control-group">
             <div class="controls">
-              <%= variant_form.text_field :text , :rows =>3, :style=>"width:700px;" %>
+              <%= variant_form.text_field :text , :rows =>3, :style=>"width:500px;" %>
               <%= variant_form.number_field :id , :style=>"display:none;" %>
               <%= variant_form.file_field :image %>
     
@@ -69,6 +75,6 @@
   <div class="form-actions">
     <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
     <%= link_to "Отмена",
-                services_path, :class => 'btn' %>
+                answers_path, :class => 'btn' %>
   </div>
 <% end %>

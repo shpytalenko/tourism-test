@@ -1,5 +1,5 @@
-<% title "New Answer" %>
-
-<%= render 'form' %>
-
-<p><%= link_to "Back to List", answers_path %></p>
+<%- model_class = Answer -%>
+<div class="page-header">
+  <h4> Новый ответ: </h4>
+</div>
+<%= render :partial => 'form' %>

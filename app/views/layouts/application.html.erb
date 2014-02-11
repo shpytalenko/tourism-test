@@ -47,13 +47,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Kid-Ландія</a>
+          <a class="brand" href="#">Твой лучший отдых </a>
           <div class="container nav-collapse">
             <ul class="nav">
-                <li class="divider-vertical"><a href="/"><i class="icon-file"></i>Нове Резюме</a></li>
+                <li class="divider-vertical"><a href="/"><i class="icon-file"></i>Пройти тест</a></li>
               <% if user_signed_in? %>
-                <li class="divider-vertical"><a href="/services"><i class="icon-question-sign"></i>Вопросы/Профессии</a></li>
-                <li class="divider-vertical"><a href="/people"><i class="icon-th-list"></i>Анкеты</a></li>
+                <li class="divider-vertical"><a href="/answers"><i class="icon-question-sign"></i>Вопросы/Ответы</a></li>
                 <li class="divider-vertical"><a href="<%= edit_user_registration_path(:method => :get)%>"><i class="icon-user"></i><%= current_user.email %></a></li>
                 <li class="divider-vertical"><a href="<%=  destroy_user_session_path%>" data-method="delete"><i class="icon-off"></i>Выход</a></li>
             <% end %>
@@ -93,7 +92,7 @@
       </div><!--/content-->
 
       <footer class="pagination-centered">
-        <p>&copy; Kid-Ландія 2013</p>
+        <p>&copy; Твой лучший отдых </p>
       </footer>
 
     </div> <!-- /container -->
@@ -104,7 +103,7 @@
     <%#= javascript_include_tag "application" %>
 <script>
      // To attach Backstrech as the body's background
-     $.backstretch("http://www.freefever.com/stock/cute-scenery-background-wallpapers-cartoon-wallpaper.jpg");
+     $.backstretch("http://inotur.com/images/stories/kurorty-i-turizm.jpg");
 </script>
 
   </body>

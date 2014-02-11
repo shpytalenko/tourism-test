@@ -15,7 +15,7 @@ class VariantsController < ApplicationController
   def create
     @variant = Variant.new(params[:variant])
     if @variant.save
-      redirect_to @variant, :notice => "Successfully created variant."
+      redirect_to answers_url, :notice => "Successfully created variant."
     else
       render :action => 'new'
     end
@@ -28,7 +28,7 @@ class VariantsController < ApplicationController
   def update
     @variant = Variant.find(params[:id])
     if @variant.update_attributes(params[:variant])
-      redirect_to services_url, :notice  => "Successfully updated variant."
+      redirect_to answers_url, :notice  => "Successfully updated variant."
     else
       render :action => 'edit'
     end
@@ -37,6 +37,6 @@ class VariantsController < ApplicationController
   def destroy
     @variant = Variant.find(params[:id])
     @variant.destroy
-    redirect_to variants_url, :notice => "Successfully destroyed variant."
+    redirect_to answers_url, :notice => "Successfully destroyed variant."
   end
 end

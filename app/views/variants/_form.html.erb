@@ -1,26 +1,27 @@
 <%= form_for @variant, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :text, :class => 'control-label' %>
+    <%= f.label "Значение", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :text, :class => 'text_area' %>
+      <%= f.text_area :text, :class => 'text_area', :rows=>2 %>
     </div>
   </div>
-  <div class="control-group">
+  <div class="control-group" style="display:none;">
     <%= f.label :question_id, :class => 'control-label' %>
     <div class="controls">
       <%= f.number_field :question_id, :class => 'number_field' %>
     </div>
   </div>
 
-  <% for job in Job.find(:all) %>
+  <% for answer in Answer.find(:all) %>
 <div>
-  <%= check_box_tag "variant[job_ids][]", job.id, @variant.jobs.include?(job) %>
-  <%= job.name %>
+  <%= check_box_tag "variant[answer_ids][]", answer.id, @variant.answers.include?(answer) %>
+  <%= answer.content[0..300] %>
+  <hr>
 </div>
 <% end %>
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                variants_path, :class => 'btn' %>
+    <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
+    <%= link_to "Отмена",
+                answers_path, :class => 'btn' %>
   </div>
 <% end %>

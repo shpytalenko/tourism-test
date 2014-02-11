@@ -10,4 +10,12 @@ class Person < ActiveRecord::Base
       self.headshot_photos << HeadshotPhoto.all.last
     end
   end
+  def show_answer
+    list = []
+    self.variants.each do |variant|
+      list += variant.answer_ids
+    end
+    answer_id = list.group_by{|a| a }.sort_by{|a,b| b.size<=>a.size}.first[0]
+    return Answer.find(answer_id).content
+  end
 end

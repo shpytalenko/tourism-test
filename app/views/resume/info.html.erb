@@ -14,16 +14,19 @@
   <div class="span6 offset3">
 <%= form_for @person,  url: wizard_path,  :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label "Введіть своє ім'я:", :class => 'control-label' %> 
+    <%= f.label "Укажите Ваше Имя:", :class => 'control-label' %> 
     <div class="controls">
-      <%= f.text_field :first_name, :class => 'text_field' , :required => true %>
+      <%= f.text_field :first_name, :class => 'text_field' , :required => true, :title=>"Укажите, пожайлуста, имя" %>
     </div>
   </div>
-
+<%
+=begin
+%>
   <div class="control-group">
-    <%= f.label "Введіть своє прізвище:", :class => 'control-label' %>
+    <%= f.label "Укажите Ваше Имя:", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :last_name, :class => 'text_field' , :required => true%>
+      <input id="name" required data-errormessage="Please tell us your Name" />
+      <%#= f.text_field :last_name, :class => 'text_field' , :required => true ,:data-errormessage =>"Please tell us your Name"%>
     </div>
   </div>
   <div class="control-group">
@@ -71,6 +74,9 @@
         </div>
       </div>
 
+<%
+=end
+%>
 <hr>
  
 
