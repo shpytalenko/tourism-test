@@ -48,11 +48,12 @@
                 variant.jobs.each do |j|
                   jobs << " #{j.name} "
                 end
-           
-           
               %>
               <% if question.images == true %>
-                <li> <%= variant.text %> ,  <%= image_tag variant.image.url(:thumb) %> <span class="muted"> ( <%=jobs %> <%= link_to "ред.", :controller => :variants, :action => :edit , :id => variant.id %> ) </li>
+                <li> <%= variant.text %> ,  <span class="muted"> ( <%=jobs %> <%= link_to "ред.", :controller => :variants, :action => :edit , :id => variant.id %> ) 
+                    <br>
+ <%= image_tag variant.image.url(:thumb) %>
+                  </li>
               <% else %>     
                 <li> <%= variant.text %>   <span class="muted"> ( <%=jobs %> <%= link_to "ред.", :controller => :variants, :action => :edit , :id => variant.id %> ) </li>
               <% end %> 

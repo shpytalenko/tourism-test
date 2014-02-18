@@ -1,3 +1,14 @@
+<style>
+  .btn-primary { display:none;}
+</style>
+<script>
+  $( document ).ready(function() {
+  $("input[name='variant']").click(function(){
+    $(".btn-primary").show();
+  });
+});
+</script>
+
 <% if @question.images == true %>
   <% @question.variants.each_slice(4) do |slice| %>
     <div class="row-fluid">
@@ -6,7 +17,7 @@
           <label class="radio">
             <%= radio_button_tag(:variant, v.id) %>
             <p class="text-center"><h4 class="muted"> <%= v.text %> </h4></p>
-            <%= image_tag "/assets/download.jpg", :class=>"img-polaroid"%>
+            <%= image_tag "#{v.image(:medium)}", :class=>"img-rounded"%>
           </label>
         </div>
       <% end %>

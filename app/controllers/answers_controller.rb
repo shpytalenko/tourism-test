@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+ before_filter :authenticate_user!
   def index
     @answers = Answer.all
     @questions = Question.all

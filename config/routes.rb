@@ -14,7 +14,7 @@ Kidsland::Application.routes.draw do
   get "pages/home"
 
   post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
-  get "admin" => 'services#index'
+  get "admin" => 'answers#index'
   devise_for :users
   resources :resume
   root :to => 'resume#show'
