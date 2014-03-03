@@ -1,12 +1,12 @@
-<div class="row">
-  <div class="span4 offset4" >
-    <%= image_tag("http://upload.wikimedia.org/wikipedia/ru/archive/9/98/20121013113115!Mickey_Mouse_in_Steamboat_Willie,_1928.jpg" , :size=>"250x250") %>
+<div class=row>
+  <div class="span6 offset2" >
+    <%= image_tag("other.jpg") %>
   </div>
 </div>
 
   <hr>
   <div class="alert alert-info">
-    <h4> Укжате информацию о себе: </h4>
+    <h4> Вкажіть ваше ім'я: </h4>
   </div>
 <hr>
 
@@ -14,75 +14,18 @@
   <div class="span6 offset3">
 <%= form_for @person,  url: wizard_path,  :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label "Укажите Ваше Имя:", :class => 'control-label' %> 
+    <%= f.label "Ім'я:", :class => 'control-label' %> 
     <div class="controls">
-      <%= f.text_field :first_name, :class => 'text_field' , :required => true, :title=>"Укажите, пожайлуста, имя" %>
+      <%= f.text_field :first_name, :class => 'text_field' , :required => true, :title=>"Заповніть це поле" %>
     </div>
   </div>
-<%
-=begin
-%>
-  <div class="control-group">
-    <%= f.label "Укажите Ваше Имя:", :class => 'control-label' %>
-    <div class="controls">
-      <input id="name" required data-errormessage="Please tell us your Name" />
-      <%#= f.text_field :last_name, :class => 'text_field' , :required => true ,:data-errormessage =>"Please tell us your Name"%>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label "Вкажіть свою стать:", :class => 'control-label' %>
-    <div class="controls">
-      <%#= f.text_field :sex, :class => 'text_field' , :required => true%>
-      <%= f.select :sex,  options_for_select( ["Чоловіча" , "Жіноча" ], "Чоловіча")  , :required => true%>
-    </div>
-  </div>
-  <div class="control-group" style="">
-    <%= f.label "Вкажіть свій вік:", :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :age, :class => '' , :style=>"width:100px;", :required => true%>
-    </div>
-  </div>
- 
-  <h5> Місце навчання </h5>
-  <hr>
-  <table >
-    <tr>
-     <td  style="width: 100px;">
-      <div class="control-group">
-        <%= f.label "Тип", :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :school_type, :placeholder => "(школа, гімназія ..)",  :class => 'text_field' , :required => true%>
-        </div>
-      </div>
-    </td>
 
-    <td>
-      <div class="control-group">
-        <%= f.label "№", :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :school_number, :placeholder => "231", :class => 'text_field' , :style=>"width:100px;",  :required => true %>
-        </div>
-      </div>
-    </td>
-    </tr>
-  </table>
-
-      <div class="control-group">
-        <%= f.label "Клас", :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :klass, :class => 'text_field' , :placeholder => "5A" ,  :required => true%>
-        </div>
-      </div>
-
-<%
-=end
-%>
 <hr>
  
 
 </div>
 </div>
  <div class="form-actions  pagination-centered">
-    <%= f.submit "Дальше", :class => 'btn btn-primary btn-large ' %>
+    <%= f.submit "Далі", :class => 'btn btn-primary btn-large ' %>
   </div>
   <% end %>

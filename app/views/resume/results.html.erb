@@ -1,6 +1,23 @@
+ <script>  
+  $(document).ready(function() {
+    $(".btnPrint").printPage(
+    {
+      url: "/resume/results",
+      attr: "href",
+      message:"Идет печать ..."
+}
+    );
+  });
+</script>
 <% @person = Person.last %>
 <%- model_class = Person -%>
+
+<div id="print_page">
 <div class="alert alert-info">
-  <h4><%=t '.title', :default => "Результаты теста:" %></h4>
+  <h4><%=t '.title', :default => "Результати теста:" %></h4>
 </div>
 <%= Person.last.show_answer %>
+
+</div>
+<hr />
+  <p class="pagination-centered"> <a class="btnPrint btn btn-primary btn-large" href='iframes/iframe.html' id="print_link">Роздрукувати</a></p>

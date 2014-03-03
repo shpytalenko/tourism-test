@@ -1,5 +1,15 @@
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
+@media print {
+  #print_link {
+    display:none;
+    }
+  .interests {
+      display:none;
+    }
+  #print_page { }
+  
+  }
 body { padding-top: 60px; }
 // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
