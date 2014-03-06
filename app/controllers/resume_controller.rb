@@ -13,12 +13,13 @@ class ResumeController < ApplicationController
   case step
   when :info
     @person = Person.create
+    cookies[:person_id] = @person.id
   end  
    render_wizard
  end
 
  def update
-  @person = Person.last
+  @person = Person.find(cookies[:person_id])
   case step
     when :info
       @person.attributes = params[:person]

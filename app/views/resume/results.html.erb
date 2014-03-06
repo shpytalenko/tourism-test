@@ -9,14 +9,14 @@
     );
   });
 </script>
-<% @person = Person.last %>
+<% @person = Person.find(cookies[:person_id]) %>
 <%- model_class = Person -%>
 
 <div id="print_page">
 <div class="alert alert-info">
   <h4><%=t '.title', :default => "Результати теста:" %></h4>
 </div>
-<%= Person.last.show_answer %>
+<%= @person.show_answer %>
 
 </div>
 <hr />
