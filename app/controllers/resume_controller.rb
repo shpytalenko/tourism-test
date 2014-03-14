@@ -11,9 +11,11 @@ class ResumeController < ApplicationController
  def show
   #  @user = current_user
   case step
-  when :info
+  when :start_page
     @person = Person.create
     cookies[:person_id] = @person.id
+  when :info
+    @person = Person.find(cookies[:person_id])
   end  
    render_wizard
  end
@@ -21,7 +23,9 @@ class ResumeController < ApplicationController
  def update
   @person = Person.find(cookies[:person_id])
   case step
-    when :info
+  when :start_page
+      cookies[:lang] = params[:lang]
+  when :info
       @person.attributes = params[:person]
     when :question1
       @person.variants << Variant.find_by_id(params[:variant].to_i)

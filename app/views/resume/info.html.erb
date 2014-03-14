@@ -6,7 +6,11 @@
 
   <hr>
   <div class="alert alert-info">
-    <h4> Вкажіть ваше ім'я: </h4>
+    <% if cookies[:lang] == "ukr" %>
+      <h4> Вкажіть ваше ім'я: </h4>
+    <% else %>
+      <h4> Укажите имя: </h4>
+    <% end %>  
   </div>
 <hr>
 
@@ -14,18 +18,28 @@
   <div class="span6 offset3">
 <%= form_for @person,  url: wizard_path,  :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label "Ім'я:", :class => 'control-label' %> 
+    <% if cookies[:lang] == "ukr" %>
+      <%= f.label "Ім'я:", :class => 'control-label' %> 
+    <% else %>
+      <%= f.label "Имя:", :class => 'control-label' %> 
+    <% end %>  
     <div class="controls">
-      <%= f.text_field :first_name, :class => 'text_field' , :required => true, :title=>"Заповніть це поле" %>
+      <% if cookies[:lang] == "ukr" %>
+        <%= f.text_field :first_name, :class => 'text_field' , :required => true, :title=>"Заповніть це поле" %>
+      <% else %>
+        <%= f.text_field :first_name, :class => 'text_field' , :required => true, :title=>"Заполните это поле" %>
+      <% end %>
     </div>
   </div>
 
 <hr>
- 
-
 </div>
 </div>
- <div class="form-actions  pagination-centered">
-    <%= f.submit "Далі", :class => 'btn btn-primary btn-large ' %>
+  <div class="form-actions  pagination-centered">
+    <% if cookies[:lang] == "ukr" %>
+      <%= f.submit "Далі", :class => 'btn btn-primary btn-large ' %>
+    <% else %>
+      <%= f.submit "Дальше", :class => 'btn btn-primary btn-large ' %>
+    <% end %>
   </div>
-  <% end %>
+<% end %>

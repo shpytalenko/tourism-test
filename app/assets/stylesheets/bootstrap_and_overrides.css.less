@@ -1,14 +1,21 @@
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
 @media print {
+   body * {
+    visibility:hidden;
+  }
+   #print_page  * {
+    visibility:visible;
+  }
+  #res  * {
+    visibility:visible;
+  }
+
+
   #print_link {
     display:none;
     }
-  .interests {
-      display:none;
-    }
-  #print_page { }
-  
+    
   }
 body { padding-top: 60px; }
 // Set the correct sprite paths

@@ -9,15 +9,24 @@
     );
   });
 </script>
-<% @person = Person.find(cookies[:person_id]) %>
-<%- model_class = Person -%>
 
 <div id="print_page">
-<div class="alert alert-info">
-  <h4><%=t '.title', :default => "Результати теста:" %></h4>
-</div>
-<%= @person.show_answer %>
-
+<% @person = Person.find(cookies[:person_id]) %>
+<%- model_class = Person -%>
+  <div class="alert alert-info">
+    <% if cookies[:lang] == "ukr" %>
+      <h4><%=t '.title', :default => "Результати теста:" %></h4>
+    <% else %> 
+      <h4><%=t '.title', :default => "Результаты теста:" %></h4>
+    <% end %> 
+  </div>
+  <span id="res" style="color:gray">
+    <%= @person.show_answer(cookies[:lang]) %>
+  </span>
 </div>
 <hr />
+ <% if cookies[:lang] == "ukr" %>
   <p class="pagination-centered"> <a class="btnPrint btn btn-primary btn-large" href='iframes/iframe.html' id="print_link">Роздрукувати</a></p>
+ <% else %>
+  <p class="pagination-centered"> <a class="btnPrint btn btn-primary btn-large" href='iframes/iframe.html' id="print_link">Печать</a></p>
+ <% end %>

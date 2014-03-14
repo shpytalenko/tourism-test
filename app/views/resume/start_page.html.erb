@@ -6,6 +6,7 @@
     </div> 
     <div class="span8">
       <h2 >  ТВІЙ НАЙКРАЩИЙ ВІДПОЧИНОК  </h2>
+      <h2 >  ТВОЙ ЛУЧШИЙ ОТДЫХ  </h2>
     </div>
   </div>
 </div>
@@ -22,7 +23,32 @@
   </div>
   <br  />
   <hr>
-  <div class="form-actions  pagination-centered">
+<div class="row">
+  <div class="span4 offset2">
+    <%= form_tag("/resume/start_page" , :method => :put)  do  %>
+      <%= hidden_field_tag(:lang, "rus") %>
+      <div class="form-actions pagination-centered">
+        <%= submit_tag "Русский" , :class=> " btn btn-primary btn-large"%>
+      </div>
+    <% end %>
+  </div>
+  <div class="span4">
+    <%= form_tag("/resume/start_page" , :method => :put)  do  %>
+      <%= hidden_field_tag(:lang, "ukr") %>
+      <div class="form-actions pagination-centered">
+        <%= submit_tag "Українська" , :class=> " btn btn-primary btn-large"%>
+      </div>
+    <% end %>
+  </div>  
+</div>
+
+<%
+=begin
+%>
+<div class="form-actions  pagination-centered">
     <%= link_to 'Далі', next_wizard_path, :class=> "btn btn-primary btn-large "%>
   </div>
 
+<%
+=end
+%>

@@ -8,13 +8,17 @@
 <% @question = Question.all[3] %>
 
 <div class="alert alert-info">
-  <h3> <%= @question.text %> </h3>
+  <h3> <%=cookies[:lang] == "ukr" ?  @question.text : @question.text_rus %> </h3>
 </div> 
 <%= form_tag("/resume/question4" , :method => :put)  do  %>
   <%= render "/resume/variants_list" %>
   <hr>
   <div class="form-actions pagination-centered">
-    <%= submit_tag "Далі" , :class=> " btn btn-primary btn-large"%>
+     <% if cookies[:lang] == "ukr"%>
+      <%= submit_tag "Далі" , :class=> " btn btn-primary btn-large"%>
+    <% else %>
+      <%= submit_tag "Дальше" , :class=> " btn btn-primary btn-large"%>
+    <% end %> 
   </div>
  <% end %>
 

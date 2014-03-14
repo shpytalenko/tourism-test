@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140210153023) do
+ActiveRecord::Schema.define(:version => 20140314123856) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "content_rus"
   end
 
   create_table "answers_variants", :id => false, :force => true do |t|
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20140210153023) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "images"
+    t.text     "text_rus"
   end
 
   create_table "services", :force => true do |t|
@@ -116,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20140210153023) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "text_rus"
   end
 
 end
