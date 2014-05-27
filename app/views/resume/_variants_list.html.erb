@@ -27,7 +27,7 @@
   <% @question.variants.each do |v| %>
     <label class="radio">
       <%= radio_button_tag(:variant, v.id) %>
-      <h4 class="muted"> <%= v.text %> </h4>
+      <h4 class="muted"> <%= cookies[:lang] == "ukr" ?  v.text : v.text_rus %> </h4>
     </label>
   <% end %>
 <% end %>
